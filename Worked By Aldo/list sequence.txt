@@ -1,0 +1,5 @@
+edit residence detail
+delete applicant
+delete residence detail
+payment detail
+submit application
