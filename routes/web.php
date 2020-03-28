@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/microhousing', function () {
+Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home/assets', 'HomeController@assets')->name('assets');
