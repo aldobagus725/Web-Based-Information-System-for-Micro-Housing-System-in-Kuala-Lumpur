@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>['auth','Housingofficer']],function(){
+    Route::get('/dashboard', function () {
+        return view('Housingofficer.dashboard');
+    });
+
+    Route::get('/viewresidences','Housingofficer\DashboardController@viewresidences');
+});
+
