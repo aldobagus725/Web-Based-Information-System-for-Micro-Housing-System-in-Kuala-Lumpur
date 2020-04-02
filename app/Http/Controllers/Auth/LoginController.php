@@ -37,7 +37,7 @@ class LoginController extends Controller
         }
         else
         {
-            return 'home';
+            return 'Applicant.dashboard';
         }
     }
     /**
@@ -73,7 +73,7 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect()->intended('/home');
+            return redirect()->intended('/Applicant/dashboard');
         }
 
     }

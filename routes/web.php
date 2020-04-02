@@ -25,11 +25,15 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     Route::get('/dashboard', function () {
         return view('Housingofficer.dashboard');
     });
-
     Route::get('/viewresidences','Housingofficer\DashboardController@viewresidences');
     Route::get('/viewapplications','Housingofficer\DashboardController@viewapplication');
     Route::get('/addresidences','Housingofficer\DashboardController@addresidences');
-
     Route::post('/addresidences','Housingofficer\DashboardController@store')->name('addedData');
+});
+
+Route::group(['middleware'=>['auth','Applicant']],function(){
+    Route::get('Applicant/dashboard', function () {
+        return view('Applicant.dashboard');
+    });
 });
 
