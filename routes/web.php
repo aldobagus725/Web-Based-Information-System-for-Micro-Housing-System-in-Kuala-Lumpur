@@ -32,8 +32,8 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
 });
 
 Route::group(['middleware'=>['auth','Applicant']],function(){
-    Route::get('Applicant/dashboard', function () {
-        return view('Applicant.dashboard');
+    Route::get('/dashboard_user', function () {
+        return view('Applicant.dashboard_user');
     });
 });
 

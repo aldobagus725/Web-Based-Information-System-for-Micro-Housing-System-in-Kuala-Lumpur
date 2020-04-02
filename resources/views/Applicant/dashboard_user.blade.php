@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Dashboard</title>
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="../css/dbkl.css">
-        <link rel="stylesheet" type="text/css" href="../css/animate.css"> 
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/dbkl.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
     </head>
     <body>
        <nav class="navbar navbar-expand-sm navbar-dark fixed-top shadow-sm" role="navigation">
@@ -32,16 +32,19 @@
                           <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Settings</a>
                             <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                           </div>
                         </li>
                     </ul>
                 </div>
         </nav>
         <div class="container-fluid contents">
-            <div id="home" class="row clearfix" data-ibg-bg="../img/2.jpg">
+            <div id="home" class="row clearfix" data-ibg-bg="{{ asset('assets/img/8.jpg') }}">
                 <div class="title-home">
-                    Hello (Nama User)!
+                    Hello {{ Auth::user()->name }} !
                 </div>
             </div>
             <div id="application" class="row p-5">
@@ -147,19 +150,19 @@
                           </ol>
                           <div class="carousel-inner">
                             <div class="carousel-item active">
-                              <img class="d-block w-100" src="../img/2.jpg" alt="First slide">
+                              <img class="d-block w-100" src="{{ asset('assets/img/2.jpg') }}" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                              <img class="d-block w-100" src="../img/4.jpg" alt="Second slide">
+                              <img class="d-block w-100" src="{{ asset('assets/img/4.jpg') }}" alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                              <img class="d-block w-100" src="../img/5.jpg" alt="Third slide">
+                              <img class="d-block w-100" src="{{ asset('assets/img/5.jpg') }}" alt="Third slide">
                             </div>
                             <div class="carousel-item">
-                              <img class="d-block w-100" src="../img/7.jpg" alt="Fourth slide">
+                              <img class="d-block w-100" src="{{ asset('assets/img/7.jpg') }}" alt="Fourth slide">
                             </div>
                             <div class="carousel-item">
-                              <img class="d-block w-100" src="../img/11.jpg" alt="Fifth slide">
+                              <img class="d-block w-100" src="{{ asset('assets/img/11.jpg') }}" alt="Fifth slide">
                             </div>
                           </div>
                           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -231,11 +234,11 @@
                 </div>
             </div>
         </div>
-        <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../js/magnific-popup.js" type="text/javascript"></script>
-        <script src="../js/jquery.interactive_bg.js" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/bootstrap.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/magnific-popup.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery.interactive_bg.js') }}" type="text/javascript"></script>
         <script>
             $(document).ready(function(){
                 $("#home").interactive_bg();
