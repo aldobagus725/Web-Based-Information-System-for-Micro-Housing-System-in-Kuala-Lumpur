@@ -12,7 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in <strong>APPLICANT</strong>
+                    You are logged in as<strong>APPLICANT</strong>
                 </div>
             </div>
         </div>

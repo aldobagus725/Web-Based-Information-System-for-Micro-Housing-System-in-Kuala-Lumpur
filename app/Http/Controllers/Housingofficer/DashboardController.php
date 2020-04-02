@@ -16,7 +16,6 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         $residences = new Residences();
-
         $residences->address = $request->input('address');
         $residences->numunits = $request->input('numunits');
         $residences->sizeperunits = $request->input('sizeperunits');

@@ -14,14 +14,14 @@ class CreateResidencesTable extends Migration
     public function up()
     {
         Schema::create('residences', function (Blueprint $table) {
-            $table->increments('residenceid');
+            $table->increments('residenceID');
             $table->string('address');
             $table->string('numunits');
             $table->string('sizeperunits');
             $table->string('monthlyrental');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE users AUTO_INCREMENT = 2020170;");
+        DB::statement("ALTER TABLE users AUTO_INCREMENT = 100040;");
     }
 
     /**
