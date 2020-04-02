@@ -30,4 +30,8 @@ class DashboardController extends Controller
         $residencess = Residences::all();
         return view('Housingofficer.viewresidences')->with('residencess',$residencess);
     }
+    public function viewapplication()
+    {
+        return view('Housingofficer.viewapplication');
+    }
 }

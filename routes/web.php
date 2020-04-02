@@ -27,6 +27,7 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     });
 
     Route::get('/viewresidences','Housingofficer\DashboardController@viewresidences');
+    Route::get('/viewapplications','Housingofficer\DashboardController@viewapplication');
     Route::get('/addresidences','Housingofficer\DashboardController@addresidences');
 
     Route::post('/addresidences','Housingofficer\DashboardController@store')->name('addedData');
