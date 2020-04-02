@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -48,4 +49,35 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function login(Request $request)
+{
+    $this->validate($request, [
+        'username' => 'required|string', 
+        'password' => 'required|string|min:6',
+    ]);
+
+    
+    $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+  
+
+    $login = [
+        $loginType => $request->username,
+        'password' => $request->password
+    ];
+  
+    
+    if (auth()->attempt($login)) {
+        if(Auth::user()->usertype=='Housingofficer')
+        {
+            return redirect()->intended('/dashboard');
+        }
+        else
+        {
+            return redirect()->intended('/home');
+        }
+
+    }
+  
+    return redirect()->route('login')->with(['error' => 'Email/Password salah!']);
+}
 }
