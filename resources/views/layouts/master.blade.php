@@ -59,7 +59,7 @@
                     <li class="nav-item active">
                         <a a class="nav-link" href="./addresidences">
                             <i class="nc-icon nc-simple-add"></i>
-                            <p>Add New Residence</p>
+                            <p>Set Up New Residence</p>
                         </a>
                     </li>
                     <li class="nav-item active">
@@ -72,17 +72,6 @@
                         <a class="nav-link" href="./viewapplications">
                             <i class="nc-icon nc-single-copy-04"></i>
                             <p>View Applications</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="./allocatehousing">
-                            <i class="nc-icon nc-bank"></i>
-                            <p>Allocate Housing</p>
-                        </a>
-                    </li>
-                        <a class="nav-link" href="./notifications">
-                            <i class="nc-icon nc-bell-55"></i>
-                            <p>Notifications</p>
                         </a>
                     </li>
                 </ul>

@@ -22,22 +22,21 @@
                                             <th>Size per Unit </th>
                                             <th>Monthly Rental</th>
                                             <th>EDIT</th>
-                                            <th>DELETE</th>
 
                                         </thead>
                                         <tbody>
+                                            @foreach ($residencess as $residence)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Denpasar</td>
-                                                <td>10</td>
-                                                <td>20</td>
-                                                <td>RM100</td>
+                                                <td>{{$residence->residenceid}}</td>
+                                                <td>{{$residence->address}}</td>
+                                                <td>{{$residence->numunits}}</td>
+                                                <td>{{$residence->sizeperunits}}</td>
+                                                <td>{{$residence->monthlyrental}}</td>
+
                                                 <td>
                                                     <a href="#" class="btn btn-sucess">EDIT</a>
                                                 </td>
-                                                <td>
-                                                    <a href="#" class="btn btn-danger">DELETE</a>
-                                                </td>
+                                            @endforeach
 
                                             </tr>
                                             
@@ -48,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-    </div>
+</div>
 @endsection
 
 
