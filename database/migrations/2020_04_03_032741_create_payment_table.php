@@ -14,14 +14,12 @@ class CreatePaymentTable extends Migration
     public function up()
     {
         Schema::create('payment', function (Blueprint $table) {
-            $table->BigIncrements->('paymentID');
-            $table->string->('rentCost');
-            $table->string->('status');
+            $table->bigIncrements('paymentID');
+            $table->string('rentCost');
+            $table->string('status');
         });
         DB::statement("ALTER TABLE payment AUTO_INCREMENT = 400200;");
-        }
     }
-
     /**
      * Reverse the migrations.
      *

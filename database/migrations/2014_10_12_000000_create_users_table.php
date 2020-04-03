@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
                 'username' => 'aldobagus',
                 'usertype' => 'Housingofficer',
                 'email' => 'aldobagus@hotmail.co.id',
-                'password' => '12345678',
+                'password' => '$2y$10$raEeBv7zHvNbISqH0bNiOegCjPfVFefJg7m5iNk6Yir0O24uu9QWa',
             )
         );
         DB::table('users')->insert(
@@ -40,7 +40,7 @@ class CreateUsersTable extends Migration
                 'username' => 'wulan',
                 'usertype' => 'Applicant',
                 'email' => 'wulan@gmail.com',
-                'password' => '12345678',
+                'password' => '$2y$10$KLgd5f6Lf6hqx1Ts4UbEp.L1YWIBu.ghU.bSpmSNwy4/XF86qaUy6',
             )
         );
     }
