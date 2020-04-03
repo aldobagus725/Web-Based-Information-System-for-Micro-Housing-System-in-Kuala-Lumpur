@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('usertype')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->bigInteger('monthlySalary');
+            $table->bigInteger('monthlyIncome')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -42,7 +42,7 @@ class CreateUsersTable extends Migration
                 'usertype' => 'Applicant',
                 'email' => 'wulan@gmail.com',
                 'password' => '$2y$10$KLgd5f6Lf6hqx1Ts4UbEp.L1YWIBu.ghU.bSpmSNwy4/XF86qaUy6',
-                'monthlySalary' => 700,
+                'monthlyIncome' => 700,
             )
         );
     }
