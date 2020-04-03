@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Submit</title>
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="../css/dbkl.css">
-        <link rel="stylesheet" type="text/css" href="../css/animate.css"> 
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/dbkl.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
     </head>
     <body>
        <nav class="navbar navbar-expand-sm navbar-dark fixed-top shadow-sm" role="navigation">
-            <h2><a class="navbar-brand" href="http://localhost:8080/mhs_1/">
+            <h2><a class="navbar-brand" href="/dashboard_user">
                 DBKL MicroHousing
             </a></h2>
                 <div class="navbar-header page-scroll">
@@ -21,25 +21,29 @@
                 </div>    
                 <div class="collapse navbar-collapse navbar-main-collapse" id="NavNavbar">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#application">Application</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#residence">Residence</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contactus">Contact</a></li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            My Profile
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item" href="../index.php">Logout</a>
-                          </div>
+                        <li class="nav-link nav-item dropdown">
+                            <a class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false" id="navbardrop" data-toggle="dropdown">
+                                <span class="caret">
+                                My Profile
+                                </span>
+                            </a>
+                              <div class="dropdown-menu animate slideIn">
+                                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Account Details</a>
+                                  <a class="dropdown-item" href="#">Change Password</a>
+                                  <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                      {{ __('Logout') }}</a>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                              </div>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard_user">Back to Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contactus">Contact</a></li>
+                        
                     </ul>
                 </div>
         </nav>
         <div class="container-fluid contents">
-            <div id="home" class="row clearfix" data-ibg-bg="../img/15.jpg">
+            <div id="home" class="row clearfix" data-ibg-bg="{{ asset('assets/img/15.jpg') }}">
                 <div class="title-home">
                     Submit Application
                 </div>
@@ -48,13 +52,17 @@
                 <div class="container">
                     <div class="row">
                         @foreach($residences as $r)
-                        <div class="col-sm-6">
-                            <form action="/pegawai/update" method="post" class="form-inline">
+                        <div class="col">
+                            <form action="/store" method="post" class="form-inline">
                                 {{ csrf_field()}}
                                     <table class="table table-borderless table-dark table-hover">
                                         <tr>
+                                            <th>Applicant ID</th>
+                                            <td><input type="text" name="userID" value="{{ Auth::user()->id }}"></td>
+                                        </tr>
+                                        <tr>
                                             <th>Residence ID</th>
-                                            <td><input type="disabled" name="residenceid" value="{{ $r->residenceid }}"></td>
+                                            <td><input type="text" name="residenceID" value="{{ $r->residenceID }}"></td>
                                         </tr>
                                         <tr>
                                             <th>Required Month</th>
@@ -123,11 +131,10 @@
                 </div>
             </div>
         </div>
-        <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../js/magnific-popup.js" type="text/javascript"></script>
-        <script src="../js/jquery.interactive_bg.js" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/bootstrap.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/magnific-popup.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery.interactive_bg.js') }}" type="text/javascript"></script>        
         <script>
             $(document).ready(function(){
                 $("#home").interactive_bg();
@@ -144,5 +151,37 @@
                 });
             });
             </script>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Account Details</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <th>Fullname</th><td>{{ Auth::user()->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Username</th><td>{{ Auth::user()->username }}</td>
+                        </tr>
+                        <tr>
+                            <th>UserID</th><td>{{ Auth::user()->id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th><td>{{ Auth::user()->email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Salary</th><td>RM{{ Auth::user()->monthlyincome }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </body>
 </html>

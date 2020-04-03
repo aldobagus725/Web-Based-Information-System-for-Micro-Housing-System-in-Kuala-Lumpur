@@ -15,17 +15,6 @@ class ApplicantController extends Controller
     {
         return view('home');
     }
-//    public function store(Request $request)
-//    {
-//        $residences = new Residences();
-//        $residences->address = $request->input('address');
-//        $residences->numunits = $request->input('numunits');
-//        $residences->sizeperunits = $request->input('sizeperunits');
-//        $residences->monthlyrental = $request->input('monthlyrental');
-//
-//        $residences->save();
-//        return view('Housingofficer.addresidences')->with('Housingofficer.addresidences',$residences);
-//    }
     public function ViewApplication()
     {
         $application = DB::table('application')->get();
@@ -35,5 +24,21 @@ class ApplicantController extends Controller
     {
         $residencess = DB::table('residences')->get();
         return view('Applicant.ViewResidence')->with('residencess',$residencess);
+    }
+    public function SubmitApplication($id)
+    {
+        $residence = DB::table('residences')->where('residenceID',$id)->get();
+        return view('Applicant.SubmitApplication',['residences' => $residence]);
+    }
+    public function store(Request $request)
+    {
+        DB::table('application')->insert([
+            'requiredMonth' => $request->requiredMonth,
+            'requiredYear' => $request->requiredYear,
+            'status' => $request->status,
+            'residenceID' => $request->residenceID,
+            'userID' => $request->userID,
+        ]);
+        return redirect('/dashboard_user');
     }
 }

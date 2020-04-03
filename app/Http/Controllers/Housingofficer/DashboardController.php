@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Housingofficer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Residences;
+use Illuminate\Support\Facades\DB;
 
 
 class DashboardController extends Controller
@@ -49,6 +50,7 @@ class DashboardController extends Controller
     }
     public function viewapplication()
     {
-        return view('Housingofficer.viewapplication');
+        $application = DB::table('application')->get();
+        return view('Housingofficer.viewapplication',['application' => $application]);
     }
 }

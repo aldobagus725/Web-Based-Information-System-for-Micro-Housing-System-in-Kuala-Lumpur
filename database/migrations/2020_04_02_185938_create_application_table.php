@@ -14,7 +14,7 @@ class CreateApplicationTable extends Migration
     public function up()
     {
         Schema::create('application', function (Blueprint $table) {
-            $table->bigIncrements('applicantionID');
+            $table->bigIncrements('applicationID');
             $table->timestamp('applicationDate');
             $table->string('requiredMonth');
             $table->string('requiredYear');

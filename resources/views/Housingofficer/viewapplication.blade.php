@@ -17,6 +17,8 @@
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <th>Applicant ID</th>
+                                            <th>Applcation ID</th>
+                                            <th>Residence ID</th>
                                             <th>Application Date</th>
                                             <th>Required Month</th>
                                             <th>Required Year </th>
@@ -26,25 +28,20 @@
 
                                         </thead>
                                         <tbody>
+                                            @foreach($application as $app)
                                             <tr>
-                                                <td>1</td>
-                                                <td>12/12/2020</td>
-                                                <td>December</td>
-                                                <td>2020</td>
-                                                <td>-</td>
-
-                                                <td>
-                                                    <a href="#" class="btn btn-sucess">DELETE</a>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="btn btn-sucess">ALLOCATE</a>
-                                                </td>
-            
-
+                                                <td>{{ $app->applicationID}}</td>
+                                                <td>{{ $app->userID}}</td>
+                                                <td>{{ $app->residenceID}}</td>
+                                                <td>{{ $app->applicationDate}}</td>
+                                                <td>{{ $app->requiredMonth}}</td>
+                                                <td>{{ $app->requiredYear}}</td>
+                                                <td>{{ $app->status}}</td>
+                                                <td><a href="#" class="btn btn-danger">DELETE</a></td>         
+                                                <td><a href="#" class="btn btn-success">ALLOCATE</a></td>
                                             </tr>
-                                            
+                                            @endforeach
                                         </tbody>
-                                        
                                     </table>
                                 </div>
                             </div>
@@ -52,8 +49,6 @@
                     </div>
 </div>
 @endsection
-
-
 @section('scripts')
 
 @endsection

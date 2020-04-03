@@ -28,9 +28,7 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     Route::get('/viewresidences','Housingofficer\DashboardController@viewresidences');
     Route::get('/editresidences{residenceID}','Housingofficer\DashboardController@editresidences');
     Route::put('/updateresidences{residenceID}','Housingofficer\DashboardController@updateresidences');
-
     Route::get('/viewapplications','Housingofficer\DashboardController@viewapplication');
-
     Route::get('/addresidences','Housingofficer\DashboardController@addresidences');
     Route::post('/addresidences','Housingofficer\DashboardController@store')->name('addedData');
 });
@@ -41,5 +39,6 @@ Route::group(['middleware'=>['auth','Applicant']],function(){
     });
     Route::get('/dashboard_user','ApplicantController@ViewApplication');
     Route::get('/ViewResidence','ApplicantController@ViewResidence');
+    Route::get('/SubmitApplication/{residenceID}','ApplicantController@SubmitApplication');
+    Route::post('/store','ApplicantController@store');
 });
-

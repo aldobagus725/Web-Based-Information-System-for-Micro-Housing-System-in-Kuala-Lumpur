@@ -19,29 +19,35 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>    
-                <div class="collapse navbar-collapse navbar-main-collapse animate slideIn" id="NavNavbar">
+                <div class="collapse navbar-collapse navbar-main-collapse" id="NavNavbar">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-link nav-item dropdown">
+                            <a class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false" id="navbardrop" data-toggle="dropdown">
+                                <span class="caret">
+                                My Profile
+                                </span>
+                            </a>
+                              <div class="dropdown-menu animate slideIn">
+                                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Account Details</a>
+                                  <a class="dropdown-item" href="#">Change Password</a>
+                                  <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                      {{ __('Logout') }}</a>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                              </div>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#application">Application</a></li>
                         <li class="nav-item"><a class="nav-link" href="#residence">Residence</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contactus">Contact</a></li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle animate slideIn" href="#" id="navbardrop" data-toggle="dropdown">
-                              My Profile
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Change Password</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                          </div>
-                        </li>
+                        
                     </ul>
                 </div>
+           
         </nav>
         <div class="container-fluid contents">
             <div id="home" class="row clearfix" data-ibg-bg="{{ asset('assets/img/8.jpg') }}">
                 <div class="title-home">
-                    Hello {{ Auth::user()->name }} !
+                    Hello {{ Auth::user()->name }}!
                 </div>
             </div>
             <div id="application" class="row p-5">
@@ -64,7 +70,6 @@
                                     <th>Required Month</th>
                                     <th>Required Year</th>
                                     <th>Status</th>
-                                    <th>Payment ID</th>
                                 </tr>
                                 @foreach($application as $app)
                                 <tr>
@@ -75,8 +80,6 @@
                                     <td>{{ $app->requiredMonth}}</td>
                                     <td>{{ $app->requiredYear}}</td>
                                     <td>{{ $app->status}}</td>
-                                    <td>{{ $app->paymentID}}</td>
-                                    <td>{{ $app->sizeperunits}}</td>
                                 </tr>
                             @endforeach
                             </table>
@@ -189,7 +192,6 @@
         </div>
         <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/js/bootstrap.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/js/magnific-popup.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/js/jquery.interactive_bg.js') }}" type="text/javascript"></script>
         <script>
@@ -208,6 +210,37 @@
                 });
             });
             </script>
-        
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Account Details</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <th>Fullname</th><td>{{ Auth::user()->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Username</th><td>{{ Auth::user()->username }}</td>
+                        </tr>
+                        <tr>
+                            <th>UserID</th><td>{{ Auth::user()->id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th><td>{{ Auth::user()->email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Salary</th><td>RM {{ Auth::user()->monthlyincome }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </body>
 </html>
