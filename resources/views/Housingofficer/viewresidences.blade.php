@@ -27,7 +27,7 @@
                                         <tbody>
                                             @foreach ($residencess as $residence)
                                             <tr>
-                                                <td>{{$residence->residenceid}}</td>
+                                                <td>{{$residence->residenceID}}</td>
                                                 <td>{{$residence->address}}</td>
                                                 <td>{{$residence->numunits}}</td>
                                                 <td>{{$residence->sizeperunits}}</td>

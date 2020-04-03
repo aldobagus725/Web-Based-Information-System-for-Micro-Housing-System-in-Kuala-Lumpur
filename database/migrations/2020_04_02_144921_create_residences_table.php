@@ -14,14 +14,30 @@ class CreateResidencesTable extends Migration
     public function up()
     {
         Schema::create('residences', function (Blueprint $table) {
-            $table->increments('residenceID');
+            $table->bigIncrements('residenceID');
             $table->string('address');
             $table->string('numunits');
             $table->string('sizeperunits');
             $table->string('monthlyrental');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE users AUTO_INCREMENT = 100040;");
+        DB::statement("ALTER TABLE residences AUTO_INCREMENT = 100040;");
+        DB::table('residences')->insert(
+            array(
+                'address' => 'Denpasar, Bali',
+                'numunits' => '12',
+                'sizeperunits' => '300 m2',
+                'monthlyrental' => 'RM150',
+            )
+        );
+        DB::table('residences')->insert(
+            array(
+                'address' => 'Kuningan, Jakarta',
+                'numunits' => '16',
+                'sizeperunits' => '500 m2',
+                'monthlyrental' => 'RM200',
+            )
+        );
     }
 
     /**

@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Residences</title>
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="../css/dbkl.css">
-        <link rel="stylesheet" type="text/css" href="../css/animate.css"> 
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/dbkl.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
     </head>
     <body>
        <nav class="navbar navbar-expand-sm navbar-dark fixed-top shadow-sm" role="navigation">
-            <h2><a class="navbar-brand" href="http://localhost:8080/mhs_1/">
+            <h2><a class="navbar-brand" href="/dashboard_user">
                 DBKL MicroHousing
             </a></h2>
                 <div class="navbar-header page-scroll">
@@ -19,27 +19,26 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>    
-                <div class="collapse navbar-collapse navbar-main-collapse" id="NavNavbar">
+                <div class="collapse navbar-collapse navbar-main-collapse animate slideIn" id="NavNavbar">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#application">Application</a></li>
                         <li class="nav-item"><a class="nav-link" href="#residence">Residence</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contactus">Contact</a></li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            My Profile
+                          <a class="nav-link dropdown-toggle animate slideIn" href="#" id="navbardrop" data-toggle="dropdown">
+                              My Profile
                           </a>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item" href="../index.php">Logout</a>
+                            <a class="dropdown-item" href="#">Change Password</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                           </div>
                         </li>
                     </ul>
                 </div>
         </nav>
         <div class="container-fluid contents">
-            <div id="home" class="row clearfix" data-ibg-bg="../img/15.jpg">
+            <div id="home" class="row clearfix" data-ibg-bg="{{ asset('assets/img/15.jpg') }}">
                 <div class="title-home">
                     Residences
                 </div>
@@ -47,8 +46,8 @@
             <div id="residence" class="row p-5">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <table class="table table-borderless table-dark table">
+                        <div class="col">
+                            <table class="table table-borderless table-dark table-hover">
                             <tr>
                                 <th>Residence ID</th>
                                 <th>Address</th>
@@ -57,15 +56,16 @@
                                 <th>Monthly Rental</th>
                                 <th>Action</th>
                             </tr>
-                            @foreach($residences as $r)
+                            @foreach($residencess as $r)
                             <tr>
-                                <td>{{ $r->residenceid}}</td>
+                                <td>{{ $r->residenceID}}</td>
                                 <td>{{ $r->address}}</td>
                                 <td>{{ $r->numunits}}</td>
                                 <td>{{ $r->sizeperunits}}</td>
                                 <td>{{ $r->monthlyrental}}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="/user/submitApplication/{{ $r->residenceid}}">Submit Application</a>
+<!--                                    <a class="btn btn-primary btn-sm" href="/user/submitApplication/{{ $r->residenceID}}">Submit Application</a>-->
+                                    <a class="btn btn-primary btn-sm" href="#">Submit Application</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -124,11 +124,11 @@
                 </div>
             </div>
         </div>
-        <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../js/magnific-popup.js" type="text/javascript"></script>
-        <script src="../js/jquery.interactive_bg.js" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/bootstrap.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/magnific-popup.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/js/jquery.interactive_bg.js') }}" type="text/javascript"></script>
         <script>
             $(document).ready(function(){
                 $("#home").interactive_bg();

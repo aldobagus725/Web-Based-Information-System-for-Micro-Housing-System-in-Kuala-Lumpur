@@ -25,6 +25,24 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
         DB::statement("ALTER TABLE users AUTO_INCREMENT = 2020100;");
+        DB::table('users')->insert(
+            array(
+                'name' => 'Rivaldo Bagus Soepardhy',
+                'username' => 'aldobagus',
+                'usertype' => 'Housingofficer',
+                'email' => 'aldobagus@hotmail.co.id',
+                'password' => '12345678',
+            )
+        );
+        DB::table('users')->insert(
+            array(
+                'name' => 'Wulandari Maharani',
+                'username' => 'wulan',
+                'usertype' => 'Applicant',
+                'email' => 'wulan@gmail.com',
+                'password' => '12345678',
+            )
+        );
     }
 
     /**

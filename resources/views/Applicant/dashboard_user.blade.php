@@ -11,7 +11,7 @@
     </head>
     <body>
        <nav class="navbar navbar-expand-sm navbar-dark fixed-top shadow-sm" role="navigation">
-            <h2><a class="navbar-brand" href="http://localhost:8080/mhs_1/">
+            <h2><a class="navbar-brand" href="/dashboard_user">
                 DBKL MicroHousing
             </a></h2>
                 <div class="navbar-header page-scroll">
@@ -19,23 +19,20 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>    
-                <div class="collapse navbar-collapse navbar-main-collapse" id="NavNavbar">
+                <div class="collapse navbar-collapse navbar-main-collapse animate slideIn" id="NavNavbar">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#application">Application</a></li>
                         <li class="nav-item"><a class="nav-link" href="#residence">Residence</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contactus">Contact</a></li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            My Profile
+                          <a class="nav-link dropdown-toggle animate slideIn" href="#" id="navbardrop" data-toggle="dropdown">
+                              My Profile
                           </a>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="#">Help</a>
+                            <a class="dropdown-item" href="#">Change Password</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                           </div>
                         </li>
                     </ul>
@@ -57,75 +54,31 @@
                     <br>
                     <br>
                     <div class="row">
-                        <div class="col-sm-3">
-                            <div class="jumbotron">
-                                <center>
-                                <h4>Application</h4>
-                                <br>
-                                <table>
-                                    <tr><th>residenceID</th><td>30021</td></tr>
-                                    <tr><th>applicationID</th><td>6000245</td></tr>
-                                    <tr><th>applicationDate</th><td>9/12/2012</td></tr>
-                                    <tr><th>requiredMonth</th><td>May</td></tr>
-                                    <tr><th>requiredYear</th><td>2025</td></tr>
-                                    <tr><th>Status</th><td>Waiting...</td></tr>
-                                </table>
-                                <br>
-                                <button class="btn btn-success btn-sdw">View Details</button>
-                                </center>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="jumbotron">
-                                <center>
-                                <h4>Application</h4>
-                                <br>
-                                <table>
-                                    <tr><th>residenceID</th><td>30022</td></tr>
-                                    <tr><th>applicationID</th><td>6000246</td></tr>
-                                    <tr><th>applicationDate</th><td>9/9/2013</td></tr>
-                                    <tr><th>requiredMonth</th><td>April</td></tr>
-                                    <tr><th>requiredYear</th><td>2021</td></tr>
-                                    <tr><th>Status</th><td>Waiting...</td></tr>
-                                </table>
-                                <br>
-                                <button class="btn btn-success btn-sdw">View Details</button>
-                                </center>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="jumbotron">
-                                <center>
-                                <h4>Application</h4>
-                                <br>
-                                <table>
-                                    <tr><th>residenceID</th><td>30023</td></tr>
-                                    <tr><th>applicationID</th><td>6000247</td></tr>
-                                    <tr><th>applicationDate</th><td>7/9/2020</td></tr>
-                                    <tr><th>requiredMonth</th><td>June</td></tr>
-                                    <tr><th>requiredYear</th><td>2020</td></tr>
-                                    <tr><th>Status</th><td>Rejected</td></tr>
-                                </table>
-                                <br>
-                                <button class="btn btn-success btn-sdw">View Details</button>
-                                </center>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="jumbotron">
-                                <h4>Payment Detail</h4>
-                                <br>
-                                <table>
-                                    <tr><th>Bill</th><td>Undefined</td></tr>
-                                    <tr><th>Status</th><td>Undefined</td></tr>
-                                </table>
-                            </div>  
-                            <table>
+                        <div class="col">   
+                            <table class="table table-borderless table-hover table-dark">
                                 <tr>
-                                    <td colspan="2">
-                                        <button class="btn btn-success btn-sdw">View More Applications</button>
-                                    </td>
+                                    <th>Application ID</th>
+                                    <th>Applicant ID</th>
+                                    <th>Residence ID</th>
+                                    <th>Application Date</th>
+                                    <th>Required Month</th>
+                                    <th>Required Year</th>
+                                    <th>Status</th>
+                                    <th>Payment ID</th>
                                 </tr>
+                                @foreach($application as $app)
+                                <tr>
+                                    <td>{{ $app->applicationID}}</td>
+                                    <td>{{ $app->userID}}</td>
+                                    <td>{{ $app->residenceID}}</td>
+                                    <td>{{ $app->applicationDate}}</td>
+                                    <td>{{ $app->requiredMonth}}</td>
+                                    <td>{{ $app->requiredYear}}</td>
+                                    <td>{{ $app->status}}</td>
+                                    <td>{{ $app->paymentID}}</td>
+                                    <td>{{ $app->sizeperunits}}</td>
+                                </tr>
+                            @endforeach
                             </table>
                         </div>
                     </div>
@@ -178,7 +131,7 @@
                     <br>
                     <div class="row">
                         <p class="text-center">
-                            <a href="ViewResidence.blade.php">
+                            <a href="/ViewResidence">
                                 <button class="btn btn-success btn-sdw">View More Residence</button>
                             </a>
                         </p>

@@ -35,5 +35,7 @@ Route::group(['middleware'=>['auth','Applicant']],function(){
     Route::get('/dashboard_user', function () {
         return view('Applicant.dashboard_user');
     });
+    Route::get('/dashboard_user','ApplicantController@ViewApplication');
+    Route::get('/ViewResidence','ApplicantController@ViewResidence');
 });
 
