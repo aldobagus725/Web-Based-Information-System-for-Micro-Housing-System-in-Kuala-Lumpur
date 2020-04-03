@@ -54,6 +54,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="monthlyincome" class="col-md-4 col-form-label text-md-right">{{ __('Monthly Income') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="monthlyincome" type="text" class="form-control @error('monthlyincome') is-invalid @enderror" name="monthlyincome" value="{{ old('monthlyincome') }}" required autocomplete="monthlyincome">
+
+                                @error('monthlyincome')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -74,6 +88,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
                         
                         <!--<div class="form-group row">
                             <label for="month-salary" class="col-md-4 col-form-label text-md-right">{{ __('Month Salary') }}</label>

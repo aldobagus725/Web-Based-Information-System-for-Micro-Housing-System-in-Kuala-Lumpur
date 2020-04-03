@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('usertype')->nullable();
             $table->string('email')->unique();
-            $table->string('password');
-            $table->bigInteger('monthlyIncome')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->bigInteger('monthlyincome')->nullable();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,7 +32,9 @@ class CreateUsersTable extends Migration
                 'username' => 'aldobagus',
                 'usertype' => 'Housingofficer',
                 'email' => 'aldobagus@hotmail.co.id',
+                
                 'password' => '$2y$10$raEeBv7zHvNbISqH0bNiOegCjPfVFefJg7m5iNk6Yir0O24uu9QWa',
+                
             )
         );
         DB::table('users')->insert(
@@ -41,11 +43,14 @@ class CreateUsersTable extends Migration
                 'username' => 'wulan',
                 'usertype' => 'Applicant',
                 'email' => 'wulan@gmail.com',
+                'monthlyincome' => '10000',
                 'password' => '$2y$10$KLgd5f6Lf6hqx1Ts4UbEp.L1YWIBu.ghU.bSpmSNwy4/XF86qaUy6',
-                'monthlyIncome' => 700,
+                
             )
         );
     }
+
+    
 
     /**
      * Reverse the migrations.
