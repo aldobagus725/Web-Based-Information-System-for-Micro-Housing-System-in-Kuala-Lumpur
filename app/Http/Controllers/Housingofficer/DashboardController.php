@@ -29,6 +29,24 @@ class DashboardController extends Controller
         $residencess = Residences::all();
         return view('Housingofficer.viewresidences')->with('residencess',$residencess);
     }
+    public function editresidences($residenceID)
+    {
+        $residencess = Residences::find($residenceID);
+        return view('Housingofficer.editresidences')->with('residencess',$residencess);
+    }
+    public function updateresidences(Request $request,$residenceID)
+    {
+        $residencess = Residences::find($residenceID);
+        
+        $residencess->address = $request->input('address');
+        $residencess->numunits = $request->input('numunits');
+        $residencess->sizeperunits = $request->input('sizeperunits');
+        $residencess->monthlyrental = $request->input('monthlyrental');
+
+        $residencess->save();
+        return redirect('/viewresidences')->with('residences',$residencess);
+        
+    }
     public function viewapplication()
     {
         return view('Housingofficer.viewapplication');

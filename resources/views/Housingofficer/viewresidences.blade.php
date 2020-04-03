@@ -34,11 +34,11 @@
                                                 <td>{{$residence->monthlyrental}}</td>
 
                                                 <td>
-                                                    <a href="#" class="btn btn-sucess">EDIT</a>
+                                                    <a href="/editresidences{{$residence->residenceID}}" class="btn btn-sucess">EDIT</a>
                                                 </td>
-                                            @endforeach
 
                                             </tr>
+                                            @endforeach
                                             
                                         </tbody>
                                         
