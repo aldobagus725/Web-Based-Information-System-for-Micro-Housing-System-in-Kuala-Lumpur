@@ -64,7 +64,6 @@
                             <table class="table table-borderless table-hover table-dark">
                                 <tr>
                                     <th>Application ID</th>
-                                    <th>Applicant ID</th>
                                     <th>Residence ID</th>
                                     <th>Application Date</th>
                                     <th>Required Month</th>
@@ -74,14 +73,13 @@
                                 @foreach($application as $app)
                                 <tr>
                                     <td>{{ $app->applicationID}}</td>
-                                    <td>{{ $app->userID}}</td>
                                     <td>{{ $app->residenceID}}</td>
                                     <td>{{ $app->applicationDate}}</td>
                                     <td>{{ $app->requiredMonth}}</td>
                                     <td>{{ $app->requiredYear}}</td>
                                     <td>{{ $app->status}}</td>
                                 </tr>
-                            @endforeach
+                                @endforeach
                             </table>
                         </div>
                     </div>
