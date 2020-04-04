@@ -55,10 +55,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'monthlyincome' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -72,8 +70,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'monthlyincome' => $data['monthlyincome'],
-            'password' => Hash::make($data['password']),
-            
+            'password' => Hash::make($data['password']), 
         ]);
     }
 }

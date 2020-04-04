@@ -69,8 +69,11 @@
                                     <th>Required Month</th>
                                     <th>Required Year</th>
                                     <th>Status</th>
+                                    <th>Payment</th>
+                                    <th>Payment Status</th>
                                 </tr>
                                 @foreach($application as $app)
+                                    @if($app->userID==Auth::user()->id)
                                 <tr>
                                     <td>{{ $app->applicationID}}</td>
                                     <td>{{ $app->residenceID}}</td>
@@ -78,7 +81,10 @@
                                     <td>{{ $app->requiredMonth}}</td>
                                     <td>{{ $app->requiredYear}}</td>
                                     <td>{{ $app->status}}</td>
+                                    <td>{{ $app->payment}}</td>
+                                    <td>{{ $app->payment_status}}</td>
                                 </tr>
+                                    @endif
                                 @endforeach
                             </table>
                         </div>

@@ -38,6 +38,8 @@ class ApplicantController extends Controller
             'status' => $request->status,
             'residenceID' => $request->residenceID,
             'userID' => $request->userID,
+            'payment' => $request->payment,
+            'payment_status' => $request->payment_status,
         ]);
         return redirect('/dashboard_user');
     }

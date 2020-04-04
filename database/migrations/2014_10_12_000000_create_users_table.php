@@ -32,7 +32,6 @@ class CreateUsersTable extends Migration
                 'username' => 'aldobagus',
                 'usertype' => 'Housingofficer',
                 'email' => 'aldobagus@hotmail.co.id',
-                
                 'password' => '$2y$10$raEeBv7zHvNbISqH0bNiOegCjPfVFefJg7m5iNk6Yir0O24uu9QWa',
                 
             )

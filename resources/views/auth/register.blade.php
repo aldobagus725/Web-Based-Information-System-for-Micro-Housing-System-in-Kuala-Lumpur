@@ -66,13 +66,11 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -88,31 +86,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
-                        
-                        <!--<div class="form-group row">
-                            <label for="month-salary" class="col-md-4 col-form-label text-md-right">{{ __('Month Salary') }}</label>
-                            <select name="Month_salary" class="custom-select">
-                            <option value="choose">Month Salary</option>
-                            </*?php
-                                $conn = mysqli_connect ("localhost", "root", "", "microhousing");
-                                if (mysqli_connect_errno()){
-                                    echo "Please Choose";
-                                    exit();
-                                }
-                                $query = "select * from tabel_salary";
-                                $result = mysqli_query($conn, $query);
-                                if (mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        echo '<option value='.$row['Month_salary'].'>'.$row['Month_salary'].'</option>';
-                                    }
-                                }
-                            ?*/>
-                          </select>
-                      </label>
-                    </div>//-->
-
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

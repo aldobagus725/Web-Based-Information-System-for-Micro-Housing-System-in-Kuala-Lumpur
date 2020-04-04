@@ -74,6 +74,8 @@
                                         </tr>
                                     </table>
                                     <input type="hidden" name="status" value="Processing">
+                                    <input type="hidden" name="payment" value="Unavailable">
+                                    <input type="hidden" name="payment_status" value="Unavailable">
                                     <input class="btn btn-primary btn-sm" type="submit" value="Submit Application">
                             </form>
                         </div>

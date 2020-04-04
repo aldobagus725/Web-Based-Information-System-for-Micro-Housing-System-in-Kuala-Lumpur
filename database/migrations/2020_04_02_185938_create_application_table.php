@@ -20,8 +20,9 @@ class CreateApplicationTable extends Migration
             $table->string('requiredYear');
             $table->string('status');
             $table->integer('residenceID');
-            $table->integer('paymentID');
             $table->integer('userID');
+            $table->string('payment');
+            $table->string('payment_status');
             $table->timestamps();
         });
         DB::statement("ALTER TABLE application AUTO_INCREMENT = 1750100;");
