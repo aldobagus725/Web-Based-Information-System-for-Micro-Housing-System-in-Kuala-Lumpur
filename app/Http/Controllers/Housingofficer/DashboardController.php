@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Housingofficer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Residences;
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -53,4 +54,24 @@ class DashboardController extends Controller
         $application = DB::table('application')->get();
         return view('Housingofficer.viewapplication',['application' => $application]);
     }
+    public function editapplication($applicationID)
+    {
+        $application = DB::table('application')->where('applicationID',$applicationID)->get();
+        //dd($application);
+        return view('Housingofficer.editapplication')->with('residences', $application);
+
+    }
+    public function updateapplication(Request $request,$applicationID)
+    {
+        $application = DB::table('application')->where('applicationID',$applicationID)->get();
+        $application->applicationID = $request->input('applicationID');
+        $application->residenceID = $request->input('residenceID');
+        $application->requiredMonth = $request->input('requiredMonth');
+        $application->requiredYear = $request->input('requiredYear');
+
+        $application->save();
+        return redirect('/viewapplication')->with('residences',$application);
+        
+    }
+
 }

@@ -50,12 +50,6 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a class="nav-link" href="./user">
-                            <i class="nc-icon nc-circle-09"></i>
-                            <p>User Profile</p>
-                        </a>
-                    </li>
                     <li class="nav-item active">
                         <a a class="nav-link" href="./addresidences">
                             <i class="nc-icon nc-simple-add"></i>
@@ -72,6 +66,12 @@
                         <a class="nav-link" href="./viewapplications">
                             <i class="nc-icon nc-single-copy-04"></i>
                             <p>View Applications</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./viewapplications">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>Delete Applicant</p>
                         </a>
                     </li>
                 </ul>
@@ -161,41 +161,6 @@
                 
                 @yield('content')
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav>
-                        <ul class="footer-menu">
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-center">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>
-                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                        </p>
-                    </nav>
-                </div>
-            </footer>
         </div>
     </div>
     <!--   -->

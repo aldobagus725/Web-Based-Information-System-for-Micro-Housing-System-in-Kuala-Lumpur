@@ -23,12 +23,13 @@
                                             <th>Required Month</th>
                                             <th>Required Year </th>
                                             <th>Status</th>
+                                            <th>EDIT</th>
                                             <th>DELETE</th>
                                             <th>ALLOCATE</th>
 
                                         </thead>
                                         <tbody>
-                                            @foreach($application as $app)
+                                            @foreach ($application as $app)
                                             <tr>
                                                 <td>{{ $app->applicationID}}</td>
                                                 <td>{{ $app->userID}}</td>
@@ -37,6 +38,7 @@
                                                 <td>{{ $app->requiredMonth}}</td>
                                                 <td>{{ $app->requiredYear}}</td>
                                                 <td>{{ $app->status}}</td>
+                                                <td><a href="/editapplication{{$app->applicationID}}" class="btn btn-dark">EDIT</a></td>   
                                                 <td><a href="#" class="btn btn-danger">DELETE</a></td>         
                                                 <td><a href="#" class="btn btn-success">ALLOCATE</a></td>
                                             </tr>
