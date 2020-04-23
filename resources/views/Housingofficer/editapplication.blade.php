@@ -9,38 +9,40 @@
 <div class="container-fluid contents">
             <div id="home" class="row clearfix" data-ibg-bg="{{ asset('assets/img/15.jpg') }}">
                 <div class="title-home">
-                    Submit Application
+                    Edit Application
                 </div>
             </div>
             <div id="residence" class="row p-5">
                 <div class="container">
                     <div class="row">
-                        @foreach($residences as $r)
+                        @foreach($application as $app)
                         <div class="col">
-                        <form action="/updateapplication{{$application ?? ''->applicationID}}" method="POST" enctype="multipart/form-data">
+                        <form action="/updateapplication{{$app->applicationID}}" method="PUT" enctype="multipart/form-data">
                                 {{ csrf_field()}}
+                            {{method_field('PUT')}}
                                     <table class="table table-borderless table-dark table-hover">
                                         <tr>
                                             <th>Applicant ID</th>
-                                            <td><input type="text" name="userID" value="{{ Auth::user()->id }}"></td>
+                                            <td><input type="text" name="userID" value="{{ $app->userID }}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Application ID</th>
+                                            <td><input type="text" name="applicationID" value="{{ $app->applicationID }}"></td>
                                         </tr>
                                         <tr>
                                             <th>Residence ID</th>
-                                            <td><input type="text" name="residenceID" value="{{ $r->residenceID }}"></td>
+                                            <td><input type="text" name="residenceID" value="{{ $app->residenceID }}"></td>
                                         </tr>
                                         <tr>
                                             <th>Required Month</th>
-                                            <td><input type="text" name="requiredMonth" required="required" placeholder="E.g. May, June..."></td>
+                                            <td><input type="text" name="requiredMonth" required="required" value="{{ $app->requiredMonth }}"></td>
                                         </tr>
                                         <tr>
                                             <th>Required Year</th>
-                                            <td><input type="text" name="requiredYear" required="required" placeholder="E.g. 2020"></td>
+                                            <td><input type="text" name="requiredYear" required="required" value="{{ $app->requiredYear }}"></td>
                                         </tr>
                                     </table>
-                                    <input type="hidden" name="status" value="Processing">
-                                    <input type="hidden" name="payment" value="Unavailable">
-                                    <input type="hidden" name="payment_status" value="Unavailable">
-                                    <button type="submit" name="submit" class="btn btn-primary"> Update Application </button>
+                                    <button type="submit" name="submit" class="btn btn-primary">Update Application</button>
                             </form>
                         </div>
                         @endforeach

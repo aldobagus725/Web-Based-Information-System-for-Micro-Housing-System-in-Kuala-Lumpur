@@ -39,12 +39,10 @@ class DashboardController extends Controller
     public function updateresidences(Request $request,$residenceID)
     {
         $residencess = Residences::find($residenceID);
-        
         $residencess->address = $request->input('address');
         $residencess->numunits = $request->input('numunits');
         $residencess->sizeperunits = $request->input('sizeperunits');
         $residencess->monthlyrental = $request->input('monthlyrental');
-
         $residencess->save();
         return redirect('/viewresidences')->with('residences',$residencess);
         
@@ -57,21 +55,16 @@ class DashboardController extends Controller
     public function editapplication($applicationID)
     {
         $application = DB::table('application')->where('applicationID',$applicationID)->get();
-        //dd($application);
-        return view('Housingofficer.editapplication')->with('residences', $application);
+        return view('Housingofficer.editapplication')->with('application', $application);
 
     }
     public function updateapplication(Request $request,$applicationID)
     {
-        $application = DB::table('application')->where('applicationID',$applicationID)->get();
-        $application->applicationID = $request->input('applicationID');
-        $application->residenceID = $request->input('residenceID');
-        $application->requiredMonth = $request->input('requiredMonth');
-        $application->requiredYear = $request->input('requiredYear');
-
-        $application->save();
-        return redirect('/viewapplication')->with('residences',$application);
-        
+        DB::table('application')->where('applicationID',$request->$applicationID)->update([
+        'requiredMonth'=> $request->requiredMonth,
+        'requiredYear'=> $request->requiredYear,
+        ]);
+        return redirect('/viewapplication')->with('application',$application);
     }
 
 }
