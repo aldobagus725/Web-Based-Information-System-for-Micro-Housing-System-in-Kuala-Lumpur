@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Housingofficer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Residences;
+use App\Application;
+use App\Allocation;
+use App\Paymeent;
+use App\User;
+use App\Unit;
 
 use Illuminate\Support\Facades\DB;
 
@@ -34,44 +39,57 @@ class DashboardController extends Controller
     public function editresidences($residenceID)
     {
         $residencess = Residences::find($residenceID);
+        //dd($residencess);
         return view('Housingofficer.editresidences')->with('residencess',$residencess);
     }
     public function updateresidences(Request $request,$residenceID)
     {
         $residencess = Residences::find($residenceID);
-        
         $residencess->address = $request->input('address');
         $residencess->numunits = $request->input('numunits');
         $residencess->sizeperunits = $request->input('sizeperunits');
         $residencess->monthlyrental = $request->input('monthlyrental');
-
         $residencess->save();
         return redirect('/viewresidences')->with('residences',$residencess);
         
     }
     public function viewapplication()
     {
-        $application = DB::table('application')->get();
-        return view('Housingofficer.viewapplication',['application' => $application]);
+        $applicationss = Application::all();
+        return view('Housingofficer.viewapplication')->with('applicationss',$applicationss);
     }
     public function editapplication($applicationID)
     {
+<<<<<<< HEAD
+        //dd($applicationID);
+        $applicationss = Application::where('applicationID',$applicationID)->get();
+        //dd($applicationss);
+        return view('Housingofficer.editapplication')->with('application', $applicationss);
+=======
         $application = DB::table('application')->where('applicationID',$applicationID)->get();
-        //dd($application);
-        return view('Housingofficer.editapplication')->with('residences', $application);
+        return view('Housingofficer.editapplication')->with('application', $application);
+>>>>>>> 7285197afdd08f63df168af5eac1219377590153
 
     }
     public function updateapplication(Request $request,$applicationID)
     {
-        $application = DB::table('application')->where('applicationID',$applicationID)->get();
-        $application->applicationID = $request->input('applicationID');
-        $application->residenceID = $request->input('residenceID');
-        $application->requiredMonth = $request->input('requiredMonth');
-        $application->requiredYear = $request->input('requiredYear');
+<<<<<<< HEAD
+        $applicationss = Application::find($applicationID);
+        $applicationss->applicationID = $request->input('applicationID');
+        $applicationss->residenceID = $request->input('residenceID');
+        $applicationss->requiredMonth = $request->input('requiredMonth');
+        $applicationss->requiredYear = $request->input('requiredYear');
 
-        $application->save();
-        return redirect('/viewapplication')->with('residences',$application);
+        $applicationss->save();
+        return redirect('/viewapplication')->with('application',$application);
         
+=======
+        DB::table('application')->where('applicationID',$request->$applicationID)->update([
+        'requiredMonth'=> $request->requiredMonth,
+        'requiredYear'=> $request->requiredYear,
+        ]);
+        return redirect('/viewapplication')->with('application',$application);
+>>>>>>> 7285197afdd08f63df168af5eac1219377590153
     }
 
 }

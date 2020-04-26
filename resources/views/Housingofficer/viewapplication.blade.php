@@ -29,7 +29,7 @@
 
                                         </thead>
                                         <tbody>
-                                            @foreach ($application as $app)
+                                            @foreach ($applicationss as $app)
                                             <tr>
                                                 <td>{{ $app->applicationID}}</td>
                                                 <td>{{ $app->userID}}</td>
