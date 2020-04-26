@@ -12,6 +12,7 @@
         <h1> Edit Residence</h1><br>
             <form action="/updateresidences{{$residencess->residenceID}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
+            {{method_field('PUT')}}
 
                 <input type="hidden" name="residenceID" residenceID="residenceID" value="{{$residencess->residenceID}}">
 
@@ -36,6 +37,9 @@
                 </div>
                 <br><br>
                 <button type="submit" name="submit" class="btn btn-primary"> Update Data </button>
+
+</body>
+</html>
 @endsection
 
 
