@@ -70,14 +70,19 @@ class DashboardController extends Controller
     public function updateapplication(Request $request,$applicationID)
     {
         $applicationss = Application::find($applicationID);
-//        $applicationss->applicationID = $request->input('applicationID');
+        //$applicationss->applicationID = $request->input('applicationID');
         $applicationss->residenceID = $request->input('residenceID');
         $applicationss->requiredMonth = $request->input('requiredMonth');
         $applicationss->requiredYear = $request->input('requiredYear');
 
         $applicationss->save();
-        return redirect('/viewapplications')->with('application',$applicationss);
-        
+        return redirect('/viewapplications')->with('application',$applicationss); 
+    }
+    public function deleteapplication($applicationID)
+    {
+        $applicationss = Application::find($applicationID);
+        $applicationss->delete();
+        return redirect ('/viewapplications')->with('application',$applicationss);
     }
 
 }

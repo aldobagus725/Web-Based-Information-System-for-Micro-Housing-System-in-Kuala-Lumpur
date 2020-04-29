@@ -69,7 +69,13 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./viewapplications">
+                        <a class="nav-link" href="./deleteapplicant">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>Delete Applicant</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./allocatehousing">
                             <i class="nc-icon nc-single-copy-04"></i>
                             <p>Delete Applicant</p>
                         </a>

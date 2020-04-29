@@ -26,6 +26,7 @@
                                             <th>EDIT</th>
                                             <th>DELETE</th>
                                             <th>ALLOCATE</th>
+                                            <th>REJECT</th>
 
                                         </thead>
                                         <tbody>
@@ -39,8 +40,8 @@
                                                 <td>{{ $app->requiredYear}}</td>
                                                 <td>{{ $app->status}}</td>
                                                 <td><a href="/editapplication{{$app->applicationID}}" class="btn btn-dark">EDIT</a></td>   
-                                                <td><a href="#" class="btn btn-danger">DELETE</a></td>         
-                                                <td><a href="#" class="btn btn-success">ALLOCATE</a></td>
+                                                <td><a href="/deleteapplication{{$app->applicationID}}" class="btn btn-danger">DELETE</a></td>         
+                                                <td><a href="#" class="btn btn-danger">REJECT</a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>
