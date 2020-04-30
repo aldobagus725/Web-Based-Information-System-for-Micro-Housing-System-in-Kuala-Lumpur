@@ -15,7 +15,7 @@ class CreateUnitTable extends Migration
     {
         Schema::create('unit', function (Blueprint $table) {
             $table->bigIncrements('unitNo');
-            $table->integer('availability');
+            $table->string('availability');
             $table->bigInteger('residenceID');
             $table->timestamps();
         });

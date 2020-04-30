@@ -29,7 +29,7 @@
                                     <td><input type="text" name="residenceID" value="{{ $r->residenceID }}"></td>
                                  </div>
 
-                                 <div class="form-group">
+                                <div class="form-group">
                                 <label> Required Month </label>
                                     <td><input type="text" name="requiredMonth" required="required" placeholder="E.g. May, June..."></td>
                                 </div>

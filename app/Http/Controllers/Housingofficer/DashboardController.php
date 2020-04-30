@@ -29,6 +29,13 @@ class DashboardController extends Controller
         $residences->monthlyrental = $request->input('monthlyrental');
 
         $residences->save();
+        for ($x = 1; $x <= $residences->numunits;$x++)
+        {
+            $units = new Unit();
+            $units->availability = "Available";
+            $units->residenceID = $residences->residenceID;
+            $units->save();
+        }
         return view('Housingofficer.addresidences')->with('Housingofficer.addresidences',$residences);
     }
     public function viewresidences()
@@ -83,6 +90,25 @@ class DashboardController extends Controller
         $applicationss = Application::find($applicationID);
         $applicationss->delete();
         return redirect ('/viewapplications')->with('application',$applicationss);
+    }
+    public function allocatehousing($applicationID)
+    {
+        $applicationss = Application::find($applicationID)->first();
+        //dd($applicationss->residenceID);
+        $units = Unit::where('residenceID', $applicationss->residenceID)->get();
+        return view('Housingofficer.allocatehousing')->with('units',$units);
+    }
+    public function storeallocate(Request $request)
+    {
+        $allocation = new Allocation();
+        $allocation->applicationID = $applicationss->$residenceID;
+        $allocation->unitNo = $units->residenceID ;
+        $allocation->fromDate =$request->input('fromDate');
+        $allocation->endDate =$request->input('endDate');
+        $allocation->duration =$request->input('duration');
+
+        $allocation->save();
+
     }
 
 }
