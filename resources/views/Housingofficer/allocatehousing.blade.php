@@ -1,20 +1,20 @@
 @extends ('layouts.master')
 @section('title')
-    Allocate Housing
+    Allocation
 @endsection
 @section('content')
     <div class="container">
         <div class="jumbotron">
-        <h1> Allocate Housing </h1><br>
+        <h1> Unit Allocation </h1><br>
         <form action="" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
-                <table class="table table-hovered">
+                <table class="table table-borderless table-hover">
                 <tr>
                     <th>Application ID</th>
                     <th>Unit Number</th>
                     <th>From Date</th>
                     <th>End Date</th>
-                    <th>Duration</th>
+                    <th>Duration (Days)</th>
                     <th>Allocate</th>
                 </tr>
                 @foreach ($applicationss as $app)
@@ -22,9 +22,9 @@
                 <tr>
                     <td><input type="text" name="applicationID" class="form-control" value="{{ $app->applicationID }}" readonly></td>
                     <td><input type="text" name="unitNo" class="form-control" value="{{ $u->unitNo }}" readonly></td>
-                    <td><input class="date form-control" type="text"></td>
-                    <td><input class="date form-control" type="text"></td>
-                    <td><input type="text" id="num_nights"></td>
+                    <td><input type="text" name="fromDate" class="date form-control" required placeholder="YYYY.MM.DD"></td>
+                    <td><input type="text" name="endDate" class="date form-control"></td>
+                    <td><input type="text" name="duration" class="form-control" value="365" readonly></td>
                     <td><button type="submit" name="submit" class="btn btn-primary">Allocate </button></td>
                 </tr>
                 @endforeach

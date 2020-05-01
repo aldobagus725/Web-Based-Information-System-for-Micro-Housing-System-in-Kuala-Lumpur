@@ -3,8 +3,6 @@
 @section('title')
     View Residences
 @endsection
-
-
 @section('content')
 <div class="container-fluid">
                     <div class="row">
@@ -19,10 +17,9 @@
                                             <th>Residence ID</th>
                                             <th>Address</th>
                                             <th>Number of Units</th>
-                                            <th>Size per Unit </th>
-                                            <th>Monthly Rental</th>
+                                            <th>Size per Unit (Meter Square) </th>
+                                            <th>Monthly Rental (Ringgit)</th>
                                             <th>EDIT</th>
-
                                         </thead>
                                         <tbody>
                                             @foreach ($residencess as $residence)
@@ -32,16 +29,12 @@
                                                 <td>{{$residence->numunits}}</td>
                                                 <td>{{$residence->sizeperunits}}</td>
                                                 <td>{{$residence->monthlyrental}}</td>
-
                                                 <td>
                                                     <a href="/editresidences{{$residence->residenceID}}" class="btn btn-sucess">EDIT</a>
                                                 </td>
-
                                             </tr>
                                             @endforeach
-                                            
                                         </tbody>
-                                        
                                     </table>
                                 </div>
                             </div>

@@ -46,7 +46,6 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     Route::put('/updateapplicant{id}','Housingofficer\DashboardController@updateapplicant');
     Route::get('/deleteapplicant{id}','Housingofficer\DashboardController@deleteapplicant');
     
-    Route::get('/edithousingofficer{id}','Housingofficer\DashboardController@edithousingofficer');
     Route::put('/updatehousingofficer{id}','Housingofficer\DashboardController@updatehousingofficer');
     Route::get('/deletehousingofficer{id}','Housingofficer\DashboardController@deletehousingofficer');
 });

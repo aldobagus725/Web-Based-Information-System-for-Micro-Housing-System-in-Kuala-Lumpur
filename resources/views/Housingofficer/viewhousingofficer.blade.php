@@ -18,7 +18,6 @@
                             <th>Full Name</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>EDIT</th>
                             <th>DELETE</th>
                         </thead>
                         <tbody>
@@ -28,7 +27,6 @@
                                 <td>{{ $user->fullname}}</td>
                                 <td>{{ $user->username}}</td>
                                 <td>{{ $user->email}}</td>
-                                <td><a href="/edithousingofficers{{$user->id}}" class="btn btn-dark">EDIT</a></td>   
                                 <td><a href="/deletehousingofficers{{$user->id}}" class="btn btn-warning">DELETE</a></td>         
                             </tr>
                             @endforeach

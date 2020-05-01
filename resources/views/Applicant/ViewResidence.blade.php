@@ -57,8 +57,8 @@
                                 <th>Residence ID</th>
                                 <th>Address</th>
                                 <th>Number of Units</th>
-                                <th>Size Per Unit</th>
-                                <th>Monthly Rental</th>
+                                <th>Size Per Unit (Meter Square)</th>
+                                <th>Monthly Rental (Malaysian Ringgit)</th>
                                 <th></th>
                             </tr>
                             @foreach($residencess as $r)

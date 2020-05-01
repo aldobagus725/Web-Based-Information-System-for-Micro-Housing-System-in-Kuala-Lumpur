@@ -3,15 +3,12 @@
 @section('title')
     Edit Applicant
 @endsection
-
-
 @section('content')
 <div class="container">
         <div class="jumbotron">
                     Edit Applicant 
                 </div>
             </div>
-            <div id="residence" class="row p-5">
                 <div class="container">
                     <div class="row">
                         @foreach($applicants as $user)
@@ -45,8 +42,5 @@
                         @endforeach
                     </div>
 @endsection
-
-
 @section('scripts')
-
 @endsection

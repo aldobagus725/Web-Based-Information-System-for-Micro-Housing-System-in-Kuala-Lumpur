@@ -24,7 +24,6 @@
                         </thead>
                         <tbody>
                             @foreach ($applicants as $user)
-                                
                             <tr>
                                 <td>{{ $user->id}}</td>
                                 <td>{{ $user->fullname}}</td>
@@ -34,7 +33,6 @@
                                 <td><a href="/editapplicant{{$user->id}}" class="btn btn-dark">EDIT</a></td>   
                                 <td><a href="/deleteapplicant{{$user->id}}" class="btn btn-warning">DELETE</a></td>         
                             </tr>
-                                
                             @endforeach
                         </tbody>
                     </table>

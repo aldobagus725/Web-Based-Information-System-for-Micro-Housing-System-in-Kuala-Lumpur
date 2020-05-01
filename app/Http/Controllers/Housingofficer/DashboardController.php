@@ -80,8 +80,8 @@ class DashboardController extends Controller{
         $allocation->applicationID = $applicationss->$residenceID;
         $allocation->unitNo = $units->residenceID ;
         $allocation->fromDate =$request->input('fromDate');
-        $allocation->endDate =$request->input('endDate');
         $allocation->duration =$request->input('duration');
+        $allocation->endDate =$request->input('endDate');
         $allocation->save();
     }
     public function viewapplicant(){
@@ -121,7 +121,6 @@ class DashboardController extends Controller{
         $applicants->save();
         return redirect('/viewapplicant')->with('applicants',$applicants); 
     }
-    
     public function updatehousingofficer(Request $request,$id){
         $housingofficers = User::find($id);
         $housingofficers->fullname = $request->input('fullname');
