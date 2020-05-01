@@ -58,11 +58,11 @@
                                     <table class="table table-borderless table-dark table-hover">
                                         <tr>
                                             <th>Applicant ID</th>
-                                            <td><input type="text" name="userID" value="{{ Auth::user()->id }}"></td>
+                                            <td><input type="text" name="userID" value="{{ Auth::user()->id }}" readonly></td>
                                         </tr>
                                         <tr>
                                             <th>Residence ID</th>
-                                            <td><input type="text" name="residenceID" value="{{ $r->residenceID }}"></td>
+                                            <td><input type="text" name="residenceID" value="{{ $r->residenceID }}" readonly></td>
                                         </tr>
                                         <tr>
                                             <th>Required Month</th>

@@ -28,12 +28,14 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     Route::get('/viewresidences','Housingofficer\DashboardController@viewresidences');
     Route::get('/editresidences{residenceID}','Housingofficer\DashboardController@editresidences');
     Route::put('/updateresidences{residenceID}','Housingofficer\DashboardController@updateresidences');
-    Route::get('/viewapplications','Housingofficer\DashboardController@viewapplication');
     Route::get('/addresidences','Housingofficer\DashboardController@addresidences');
     Route::post('/addresidences','Housingofficer\DashboardController@store')->name('addedData');
+    
+    Route::get('/viewapplications','Housingofficer\DashboardController@viewapplication');
     Route::get('/editapplication{applicationID}','Housingofficer\DashboardController@editapplication');
     Route::put('/updateapplication{applicationID}','Housingofficer\DashboardController@updateapplication');
     Route::get('/deleteapplication{applicationID}','Housingofficer\DashboardController@deleteapplication');
+    
     Route::get('/allocatehousing{applicationID}','Housingofficer\DashboardController@allocatehousing');
     Route::post('/allocatehousing{applicationID}','Housingofficer\DashboardController@storeallocate')->name('addedHouse');
     

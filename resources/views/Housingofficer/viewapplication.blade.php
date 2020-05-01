@@ -17,7 +17,7 @@
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <th>Applicant ID</th>
-                                            <th>Applcation ID</th>
+                                            <th>Application ID</th>
                                             <th>Residence ID</th>
                                             <th>Application Date</th>
                                             <th>Required Month</th>
@@ -32,15 +32,15 @@
                                         <tbody>
                                             @foreach ($applicationss as $app)
                                             <tr>
-                                                <td>{{ $app->applicationID}}</td>
                                                 <td>{{ $app->userID}}</td>
+                                                <td>{{ $app->applicationID}}</td>
                                                 <td>{{ $app->residenceID}}</td>
                                                 <td>{{ $app->applicationDate}}</td>
                                                 <td>{{ $app->requiredMonth}}</td>
                                                 <td>{{ $app->requiredYear}}</td>
                                                 <td>{{ $app->status}}</td>
                                                 <td><a href="/editapplication{{$app->applicationID}}" class="btn btn-dark">EDIT</a></td>   
-                                                <td><a href="/deleteapplication{{$app->applicationID}}" class="btn btn-warning">DELETE</a></td>         
+                                                <td><a href="/deleteapplication{{$app->applicationID}}" class="btn btn-warning">DELETE</a></td>
                                                 <td><a href="/allocatehousing{{$app->applicationID}}" class="btn btn-sucess">ALLOCATE</a></td>
                                                 <td><a href="" class="btn btn-danger">REJECT</a></td>
                                             </tr>

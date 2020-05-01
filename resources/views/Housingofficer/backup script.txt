@@ -1,0 +1,26 @@
+allocate housing
+<!--
+                <div class="form-group">
+                    <label> Application ID </label>
+                    <input type="text" name="applicationID" class="form-control" value="{{ $app->applicationID }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label> Unit No </label>
+                    <input type="text" name="unitNo" class="form-control" value="{{ $u->unitNo }}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label> From Date </label>
+                    <input class="date form-control" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label> End Date </label>
+                    <input class="date form-control" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label> Duration </label>
+                    <input type="text" id="num_nights" readonly>
+                </div>
+-->

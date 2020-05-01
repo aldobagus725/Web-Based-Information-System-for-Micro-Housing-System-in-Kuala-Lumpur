@@ -70,10 +70,10 @@ class DashboardController extends Controller{
         $applicationss->delete();
         return redirect ('/viewapplications')->with('application',$applicationss);
     }
-    public function allocatehousing($applicationID){
-        $applicationss = Application::find($applicationID)->first();
-        $units = Unit::where('residenceID', $applicationss->residenceID)->get();
-        return view('Housingofficer.allocatehousing')->with('units',$units);
+    public function allocatehousing($id){
+        $applicationss = Application::where('applicationID',$id)->get();
+        $units = Unit::where('residenceID', $applicationss[0]->residenceID)->get();
+        return view('Housingofficer.allocatehousing')->with('units',$units)->with('applicationss',$applicationss);
     }
     public function storeallocate(Request $request){
         $allocation = new Allocation();
