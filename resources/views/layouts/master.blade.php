@@ -50,22 +50,34 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a a class="nav-link" href="./addresidences">
                             <i class="nc-icon nc-simple-add"></i>
                             <p>Set Up New Residence</p>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a a class="nav-link" href="./viewresidences">
                             <i class="nc-icon nc-single-copy-04"></i>
-                            <p>View Residences</p>
+                            <p>Residences</p>
                         </a>
                     </li>
                     <li>
                         <a class="nav-link" href="./viewapplications">
                             <i class="nc-icon nc-single-copy-04"></i>
-                            <p>View Applications</p>
+                            <p>Applications</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./viewapplicant">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>Applicants</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./viewhousingofficer">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>Housing Officer</p>
                         </a>
                     </li>
                 </ul>
@@ -120,14 +132,12 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

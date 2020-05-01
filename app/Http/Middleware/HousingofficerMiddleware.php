@@ -5,25 +5,13 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class HousingofficerMiddleware
-{
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
-        if(Auth::user()->usertype == 'Housingofficer')
-        {
+class HousingofficerMiddleware{
+    public function handle($request, Closure $next){
+        if(Auth::user()->usertype == 'Housingofficer'){
             return $next($request);
         }
-        else
-        {
-            return redirect('/home')-> with('status','You are Not Allowed To HousingOfficer Dashboard');
+        else{
+            return redirect('/home')-> with('status','MAMANK ADMIN!');
         }
-        
     }
 }

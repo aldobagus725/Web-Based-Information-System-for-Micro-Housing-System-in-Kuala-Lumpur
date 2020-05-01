@@ -12,7 +12,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in as <strong>HOUSING OFFICER</strong>
+                  Sign up as <strong>Housing Officer</strong> is success!
+		          <a href="dashboard">Click this link to go to your dashboard!</a>
                 </div>
             </div>
         </div>
