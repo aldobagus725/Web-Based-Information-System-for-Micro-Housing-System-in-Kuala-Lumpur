@@ -47,7 +47,7 @@
         <div class="container-fluid contents">
             <div id="home" class="row clearfix" data-ibg-bg="{{ asset('assets/img/8.jpg') }}">
                 <div class="title-home">
-                    Hello {{ Auth::user()->name }}!
+                    Hello {{ Auth::user()->fullname }}!
                 </div>
             </div>
             <div id="application" class="row p-5">
@@ -224,7 +224,7 @@
                 <div class="modal-body">
                     <table>
                         <tr>
-                            <th>Fullname</th><td>{{ Auth::user()->name }}</td>
+                            <th>Fullname</th><td>{{ Auth::user()->fullname }}</td>
                         </tr>
                         <tr>
                             <th>Username</th><td>{{ Auth::user()->username }}</td>
@@ -236,12 +236,9 @@
                             <th>Email</th><td>{{ Auth::user()->email }}</td>
                         </tr>
                         <tr>
-                            <th>Salary</th><td>RM {{ Auth::user()->monthlyincome }}</td>
+                            <th>Salary</th><td>RM {{ Auth::user()->monthlyIncome }}</td>
                         </tr>
                     </table>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>

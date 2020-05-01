@@ -153,7 +153,7 @@
                 });
             });
             </script>
-        <div class="modal fade" id="myModal">
+         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -163,7 +163,7 @@
                 <div class="modal-body">
                     <table>
                         <tr>
-                            <th>Fullname</th><td>{{ Auth::user()->name }}</td>
+                            <th>Fullname</th><td>{{ Auth::user()->fullname }}</td>
                         </tr>
                         <tr>
                             <th>Username</th><td>{{ Auth::user()->username }}</td>
@@ -175,12 +175,9 @@
                             <th>Email</th><td>{{ Auth::user()->email }}</td>
                         </tr>
                         <tr>
-                            <th>Salary</th><td>RM{{ Auth::user()->monthlyincome }}</td>
+                            <th>Salary</th><td>RM {{ Auth::user()->monthlyIncome }}</td>
                         </tr>
                     </table>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>

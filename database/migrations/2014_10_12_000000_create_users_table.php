@@ -4,23 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
+class CreateUsersTable extends Migration{
+    public function up(){
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('fullname');
             $table->string('username')->unique();
             $table->string('usertype')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->bigInteger('monthlyincome')->nullable();
+            $table->bigInteger('monthlyIncome')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -28,7 +20,7 @@ class CreateUsersTable extends Migration
         DB::statement("ALTER TABLE users AUTO_INCREMENT = 2020100;");
         DB::table('users')->insert(
             array(
-                'name' => 'Rivaldo Bagus Soepardhy',
+                'fullname' => 'Rivaldo Bagus Soepardhy',
                 'username' => 'aldobagus',
                 'usertype' => 'Housingofficer',
                 'email' => 'aldobagus@hotmail.co.id',
@@ -38,26 +30,16 @@ class CreateUsersTable extends Migration
         );
         DB::table('users')->insert(
             array(
-                'name' => 'Wulandari Maharani',
+                'fullname' => 'Wulandari Maharani',
                 'username' => 'wulan',
                 'usertype' => 'Applicant',
                 'email' => 'wulan@gmail.com',
-                'monthlyincome' => '10000',
-                'password' => '$2y$10$KLgd5f6Lf6hqx1Ts4UbEp.L1YWIBu.ghU.bSpmSNwy4/XF86qaUy6',
-                
+                'monthlyIncome' => '10000',
+                'password' => '$2y$10$KLgd5f6Lf6hqx1Ts4UbEp.L1YWIBu.ghU.bSpmSNwy4/XF86qaUy6', 
             )
         );
     }
-
-    
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('users');
     }
 }
