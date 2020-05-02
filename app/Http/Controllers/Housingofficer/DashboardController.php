@@ -71,12 +71,21 @@ class DashboardController extends Controller{
         $applicationss->delete();
         return redirect ('/viewapplications')->with('application',$applicationss);
     }
+    public function viewallocation(){
+        $allocation = Allocation::all();
+        return view('Housingofficer.viewallocation')->with('allocation',$allocation);
+    }
     public function allocatehousing($id){
         $applicationss = Application::where('applicationID',$id)->get();
         $units = Unit::where('residenceID', $applicationss[0]->residenceID)->get();
         return view('Housingofficer.allocatehousing')->with('units',$units)->with('applicationss',$applicationss);
     }
-    public function storeallocate(Request $request,$id){
+    public function confirmallocate($applicationID,$unitNo){
+        $applicationss = Application::where('applicationID',$applicationID)->get();
+        $units = Unit::where('unitNo', $unitNo)->get();
+        return view('Housingofficer.confirmallocate')->with('units',$units)->with('applicationss',$applicationss);
+    }
+    public function storeallocate(Request $request){
         $allocation = new Allocation();
         $allocation->applicationID = $request->input('applicationID');
         $allocation->unitNo = $request->input('unitNo');
@@ -88,13 +97,9 @@ class DashboardController extends Controller{
         $allocation->save();
         return view('Housingofficer.dashboard');
     }
-    public function viewallocation(){
-        $allocation = Allocation::all();
-        return view('Housingofficer.viewallocation')->with('allocation',$allocation);
-    }
+
     public function deleteallocate($applicationID){
         $allocation = Allocation::where('unitNo',$applicationID)->delete();
-        //$allocation->delete();
         return redirect ('/viewallocation')->with('allocation',$allocation);
     }
     public function viewapplicant(){

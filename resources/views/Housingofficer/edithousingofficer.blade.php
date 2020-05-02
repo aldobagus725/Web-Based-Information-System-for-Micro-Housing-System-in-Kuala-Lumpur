@@ -1,23 +1,23 @@
 @extends ('layouts.master')
 @section('title')
-    Edit Applicant
+    Edit Housing Officer
 @endsection
 @section('content')
 <div class="container">
     <div class="card-header ">
-        <h4 class="card-title">Edit Applicant</h4>
+        <h4 class="card-title">Edit Housing Officer</h4>
     </div>
     <div class="jumbotron">
         <div class="container">
             <div class="row">
-                @foreach($applicants as $user)
+                @foreach($housingofficers as $user)
                 <div class="col">
-                    <form action="/updateapplicant{{$user->id}}" method="POST" enctype="multipart/form-data">
+                    <form action="/updatehousingofficer{{$user->id}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
                         {{method_field('PUT')}}
                         <table class="table table-hover">
                             <tr>
-                                <th><label> Applicant ID</label></th>
+                                <th><label> Housing Officer ID</label></th>
                                 <td><input type="text" class="form-control" name="id" value="{{$user->id}}" readonly></td>
                             </tr>
                             <tr>
@@ -29,16 +29,12 @@
                                 <td><input type="text" class="form-control" name="username" value="{{$user->username}}" required></td>
                             </tr>
                             <tr>
-                                <th><label> E-mail Address </label></th>
+                                <th><label> Email </label></th>
                                 <td><input type="email" class="form-control" name="email" value="{{$user->email}}" required></td>
-                            </tr>
-                            <tr>
-                                <th><label> Monthly Income (Malaysian Ringgit) </label></th>
-                                <td><input type="text" class="form-control" name="monthlyIncome" value="{{$user->monthlyIncome}}" required></td>
                             </tr>
                         </table>
                             <br><br>
-                    <button type="submit" name="submit" class="btn btn-primary"> Update Applicant</button>
+                    <button type="submit" name="submit" class="btn btn-primary"> Update Data</button>
                     </form>
                         </div>
                         @endforeach
@@ -46,3 +42,4 @@
 @endsection
 @section('scripts')
 @endsection
+

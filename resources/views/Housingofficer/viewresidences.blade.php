@@ -30,7 +30,7 @@
                                                 <td>{{$residence->sizeperunits}}</td>
                                                 <td>{{$residence->monthlyrental}}</td>
                                                 <td>
-                                                    <a href="/editresidences{{$residence->residenceID}}" class="btn btn-sucess">EDIT</a>
+                                                    <a href="/editresidences{{$residence->residenceID}}" class="btn btn-warning">EDIT</a>
                                                 </td>
                                             </tr>
                                             @endforeach

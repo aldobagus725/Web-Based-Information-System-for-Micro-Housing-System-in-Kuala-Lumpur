@@ -19,7 +19,7 @@
                             <th>FROM DATE</th>
                             <th>DURATION</th>
                             <th>END DATE</th>
-                            <th>REJECT</th>
+                            <th>DELETE</th>
                         </thead>
                         <tbody>
                             @foreach ($allocation as $al)
@@ -29,7 +29,7 @@
                                 <td>{{ $al->fromDate}}</td>
                                 <td>{{ $al->duration}}</td>
                                 <td>{{ $al->endDate}}</td>
-                                <td><a href="/deleteallocation{{$al->unitNo}}" class="btn btn-danger">REJECT</a></td>         
+                                <td><a href="/deleteallocation{{$al->unitNo}}" class="btn btn-danger">DELETE</a></td>
                             </tr>
                             @endforeach
                         </tbody>
