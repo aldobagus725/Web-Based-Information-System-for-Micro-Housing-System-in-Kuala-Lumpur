@@ -15,7 +15,6 @@
                     <th>Unit Number</th>
                     <th>From Date</th>
                     <th>Duration (Days)</th>
-                    <th>End Date</th>
                     <th>Allocate</th>
                 </tr>
                     @foreach ($units as $u)

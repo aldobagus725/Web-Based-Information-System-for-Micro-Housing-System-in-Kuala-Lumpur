@@ -79,7 +79,7 @@ class DashboardController extends Controller{
     public function storeallocate(Request $request,$id){
         $allocation = new Allocation();
         $allocation->applicationID = $request->input('applicationID');
-        $allocation->unitNo = $request->unitNo;
+        $allocation->unitNo = $request->input('unitNo');
         $allocation->fromDate = new Carbon($request->input('fromDate'));
         $toAdd = new Carbon($request->input('fromDate'));
         $allocation->duration=$request->input('duration');
@@ -87,6 +87,15 @@ class DashboardController extends Controller{
         $allocation->endDate = $toAdd->addDays($duration);
         $allocation->save();
         return view('Housingofficer.dashboard');
+    }
+    public function viewallocation(){
+        $allocation = Allocation::all();
+        return view('Housingofficer.viewallocation')->with('allocation',$allocation);
+    }
+    public function deleteallocate($applicationID){
+        $allocation = Allocation::where('unitNo',$applicationID)->delete();
+        //$allocation->delete();
+        return redirect ('/viewallocation')->with('allocation',$allocation);
     }
     public function viewapplicant(){
         $filter = 'Applicant';

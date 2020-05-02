@@ -38,6 +38,8 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     
     Route::get('/allocatehousing{applicationID}','Housingofficer\DashboardController@allocatehousing');
     Route::post('/allocatehousing{applicationID}','Housingofficer\DashboardController@storeallocate');
+    Route::get('/viewallocation','Housingofficer\DashboardController@viewallocation');
+    Route::get('/deleteallocation{unitNo}','Housingofficer\DashboardController@deleteallocate');
     
     Route::get('/viewapplicant','Housingofficer\DashboardController@viewapplicant');
     Route::get('/viewhousingofficer','Housingofficer\DashboardController@viewhousingofficer');
