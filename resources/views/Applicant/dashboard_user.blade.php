@@ -91,6 +91,46 @@
                     </div>
                 </div>
             </div>
+            <div id="application" class="row p-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="title-aboutus">
+                            Allocation
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col">   
+                            <table class="table table-borderless table-hover table-dark">
+                                <tr>
+                                    <th>Application ID</th>
+                                    <th>Unit ID</th>
+                                    <th>Date Staying</th>
+                                    <th>Date Leaving</th>
+                                    <th>Duration (In Days)</th>
+                                </tr>
+                                @foreach($application as $app)
+                                    @foreach($allocate as $all)
+                                        @if($a = $app->userID==Auth::user()->id)
+                                            @if($all->applicationID==$a)
+                                <tr>
+                                    <td>{{ $all->applicationID}}</td>
+                                    <td>{{ $all->unitNo}}</td>
+                                    <td>{{ $all->fromDate}}</td>
+                                    <td>{{ $all->endDate}}</td>
+                                    <td>{{ $all ->duration}}</td>
+                                </tr>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div id="residence" class="row p-5">
                 <div class="container">
                     <div class="row">
@@ -238,6 +278,7 @@
                         <tr>
                             <th>Salary</th><td>RM {{ Auth::user()->monthlyIncome }}</td>
                         </tr>
+                        
                     </table>
                 </div>
               </div>

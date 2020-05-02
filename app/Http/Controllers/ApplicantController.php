@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Application;
+use App\Allocation;
 
 class ApplicantController extends Controller{
     public function __construct(){
@@ -14,8 +15,10 @@ class ApplicantController extends Controller{
         return view('home');
     }
     public function ViewApplication(){
-        $application = DB::table('application')->get();
-        return view('Applicant.dashboard_user',['application' => $application]);
+        $application = Application::all();
+        $allocate = Allocation::all();
+//        return view('Applicant.dashboard_user',['application' => $application]);
+        return view('Applicant.dashboard_user')->with('application',$application)->with('allocate',$allocate);
     }
     public function ViewResidence(){
         $residencess = DB::table('residences')->get();

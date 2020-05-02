@@ -76,27 +76,17 @@ class DashboardController extends Controller{
         $units = Unit::where('residenceID', $applicationss[0]->residenceID)->get();
         return view('Housingofficer.allocatehousing')->with('units',$units)->with('applicationss',$applicationss);
     }
-    public function storeallocate(Request $request,$applicationss){
+    public function storeallocate(Request $request,$id){
         $allocation = new Allocation();
-        $allocation->applicationID = $applicationss->$residenceID;
-        $allocation->unitNo = $units->residenceID ;
-        $allocation->fromDate = $request->input('fromDate');
-        $fromDate = Carbon::parsel($postData[$allocation->fromDate]);
+        $allocation->applicationID = $request->input('applicationID');
+        $allocation->unitNo = $request->unitNo;
+        $allocation->fromDate = new Carbon($request->input('fromDate'));
+        $toAdd = new Carbon($request->input('fromDate'));
         $allocation->duration=$request->input('duration');
-        $allocation->endDate = $fromDate->addDays('duration');
-
-  /*$allocation->fromDate =$request->input('fromDate');
-        $allocation->duration =$request->input('duration');
-        $from = Carbon::createFromFormat('d.m.Y',$allocation->fromDate);
-        $daysToAdd=365;
-        $from = $from->addDays($daysToAdd);
-        //dd($dates);
-        $allocation->endDate =$request->input('endDate');
-        $to = Carbon::createFromFormat('d.m.Y',$allocation->endDate);
-        $diff_in_days = $to->diffInDays($from);*/
+        $duration = $allocation->duration=$request->input('duration');
+        $allocation->endDate = $toAdd->addDays($duration);
         $allocation->save();
-        return view('Housingofficer.viewapplications')->with('application',$applicationss);
-
+        return view('Housingofficer.dashboard');
     }
     public function viewapplicant(){
         $filter = 'Applicant';
