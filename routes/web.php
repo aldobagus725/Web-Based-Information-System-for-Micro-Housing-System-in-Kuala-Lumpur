@@ -37,7 +37,7 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     Route::get('/deleteapplication{applicationID}','Housingofficer\DashboardController@deleteapplication');
     
     Route::get('/allocatehousing{applicationID}','Housingofficer\DashboardController@allocatehousing');
-    Route::post('/allocatehousing{applicationID}','Housingofficer\DashboardController@storeallocate')->name('addedHouse');
+    Route::post('/allocatehousing{applicationID}','Housingofficer\DashboardController@storeallocate');
     
     Route::get('/viewapplicant','Housingofficer\DashboardController@viewapplicant');
     Route::get('/viewhousingofficer','Housingofficer\DashboardController@viewhousingofficer');
