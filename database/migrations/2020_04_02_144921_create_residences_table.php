@@ -16,7 +16,6 @@ class CreateResidencesTable extends Migration{
         });
         DB::statement("ALTER TABLE residences AUTO_INCREMENT = 100040;");
     }
-
     public function down(){
         Schema::dropIfExists('residences');
     }
