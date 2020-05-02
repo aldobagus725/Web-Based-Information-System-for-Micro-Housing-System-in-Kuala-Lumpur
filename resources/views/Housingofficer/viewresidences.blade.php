@@ -14,6 +14,7 @@
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
                                         <thead>
+                                            <th>Staff ID (in charge)</th>
                                             <th>Residence ID</th>
                                             <th>Address</th>
                                             <th>Number of Units</th>
@@ -24,6 +25,7 @@
                                         <tbody>
                                             @foreach ($residencess as $residence)
                                             <tr>
+                                                <td>{{$residence->admin_id}}</td>
                                                 <td>{{$residence->residenceID}}</td>
                                                 <td>{{$residence->address}}</td>
                                                 <td>{{$residence->numunits}}</td>
