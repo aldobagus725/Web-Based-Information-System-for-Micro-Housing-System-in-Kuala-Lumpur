@@ -17,7 +17,6 @@ class ApplicantController extends Controller{
     public function ViewApplication(){
         $application = Application::all();
         $allocate = Allocation::all();
-//        return view('Applicant.dashboard_user',['application' => $application]);
         return view('Applicant.dashboard_user')->with('application',$application)->with('allocate',$allocate);
     }
     public function ViewResidence(){
@@ -41,6 +40,4 @@ class ApplicantController extends Controller{
         $application->save();
         return redirect('/dashboard_user');
     }
-    
-       
 }

@@ -29,7 +29,7 @@
                             </a>
                               <div class="dropdown-menu animate slideIn">
                                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Account Details</a>
-                                  <a class="dropdown-item" href="#">Change Password</a>
+                                  <a class="dropdown-item" href="{{ route('password.request') }}">Change Password</a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}</a>
                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
@@ -39,10 +39,8 @@
                         <li class="nav-item"><a class="nav-link" href="#application">Application</a></li>
                         <li class="nav-item"><a class="nav-link" href="#residence">Residence</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contactus">Contact</a></li>
-                        
                     </ul>
                 </div>
-           
         </nav>
         <div class="container-fluid contents">
             <div id="home" class="row clearfix" data-ibg-bg="{{ asset('assets/img/8.jpg') }}">
@@ -89,20 +87,12 @@
                             </table>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id="application" class="row p-5">
-                <div class="container">
                     <div class="row">
-                        <div class="title-aboutus">
-                            Allocation
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col">   
-                            <table class="table table-borderless table-hover table-dark">
+                        <div class="col">
+                            <div class="title-aboutus">
+                                Allocation Details
+                            </div>
+                                <table class="table table-borderless table-hover table-dark">
                                 <tr>
                                     <th>Application ID</th>
                                     <th>Unit ID</th>
@@ -130,7 +120,6 @@
                     </div>
                 </div>
             </div>
-            
             <div id="residence" class="row p-5">
                 <div class="container">
                     <div class="row">

@@ -90,7 +90,6 @@
             </div>
         </div>
         <div class="main-panel">
-            <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
