@@ -83,7 +83,7 @@
                     <li>
                         <a class="nav-link" href="./viewhousingofficer">
                             <i class="nc-icon nc-single-copy-04"></i>
-                            <p>Housing Officer</p>
+                            <p>Housing Officers</p>
                         </a>
                     </li>
                 </ul>

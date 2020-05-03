@@ -53,7 +53,8 @@ class DashboardController extends Controller{
     }
     public function viewapplication(){
         $applicationss = Application::all();
-        return view('Housingofficer.viewapplication')->with('applicationss',$applicationss);
+        $residencess = Residences::all();
+        return view('Housingofficer.viewapplication')->with('applicationss',$applicationss)->with('residencess',$residencess);
     }
     public function editapplication($applicationID){
         $applicationss = Application::where('applicationID',$applicationID)->get();

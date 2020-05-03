@@ -3,10 +3,7 @@
 @section('title')
     Set Up New Residence
 @endsection
-
-
 @section('content')
-
     <div class="container">
         <div class="jumbotron">
         <h1> Set Up New Residence</h1><br>
@@ -34,10 +31,6 @@
                 </div>
                 <br><br>
                 <button type="submit" name="submit" class="btn btn-primary"> Save Data </button>
-
 @endsection
-
-
 @section('scripts')
-
 @endsection
