@@ -97,9 +97,14 @@ class DashboardController extends Controller{
         $duration = $allocation->duration=$request->input('duration');
         $allocation->endDate = $toAdd->addDays($duration);
         $allocation->save();
+        //application changing status
+        $applicationID = $allocation->applicationID = $request->input('applicationID');
+        $application = Application::find($applicationID);
+        $application ->status =  $allocation->status = $request->input('status');
+        $application ->payment_status = $allocation->payment_status = $request->input('payment_status');
+        $application->save();
         return view('Housingofficer.dashboard');
     }
-
     public function deleteallocate($applicationID){
         $allocation = Allocation::where('unitNo',$applicationID)->delete();
         return redirect ('/viewallocation')->with('allocation',$allocation);

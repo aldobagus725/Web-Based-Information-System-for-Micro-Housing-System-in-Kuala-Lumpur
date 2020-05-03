@@ -67,7 +67,7 @@
                                     <th>Required Month</th>
                                     <th>Required Year</th>
                                     <th>Status</th>
-                                    <th>Payment</th>
+                                    <th>Payment (Ringgit)</th>
                                     <th>Payment Status</th>
                                 </tr>
                                 @foreach($application as $app)
