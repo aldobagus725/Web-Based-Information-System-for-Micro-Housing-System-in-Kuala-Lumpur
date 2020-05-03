@@ -33,7 +33,16 @@
                         <th>Duration (Days)</th>
                         <td><input type="text" name="duration" class="form-control" value="365" readonly></td>
                     </tr>
+                    <tr>
+                        <th>Change Acceptance Status</th>
+                        <td><input type="text" name="status" class="form-control" value="{{ $app->status }}"></td>
+                    </tr>
+                    <tr>
+                        <th>Change Payment Status</th>
+                        <td><input type="text" name="payment_status" class="form-control" value="{{ $app->payment_status }}"></td>
+                    </tr>
                     </table>
+                    <center>
                     <table table table-borderless table-hover>
                         <tr>
                             <td>Are you sure you want to allocate?</td>
@@ -43,6 +52,7 @@
                             <td><a class="btn btn-primary btn-danger" href="/viewapplications">No</a></td>
                         </tr>
                     </table>
+                    </center>
                     <br><br>
                 </form>
                     @endforeach

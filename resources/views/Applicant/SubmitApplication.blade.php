@@ -65,6 +65,10 @@
                                             <td><input type="text" name="residenceID" value="{{ $r->residenceID }}" readonly></td>
                                         </tr>
                                         <tr>
+                                            <th>Payment (Ringgit)</th>
+                                            <td><input type="text" name="payment" required="required" value="{{ $r->monthlyrental }}" readonly></td>
+                                        </tr>
+                                        <tr>
                                             <th>Required Month</th>
                                             <td><input type="text" name="requiredMonth" required="required" placeholder="E.g. May, June..."></td>
                                         </tr>
@@ -74,7 +78,6 @@
                                         </tr>
                                     </table>
                                     <input type="hidden" name="status" value="Processing">
-                                    <input type="hidden" name="payment" value="Unavailable">
                                     <input type="hidden" name="payment_status" value="Unavailable">
                                     <input class="btn btn-primary btn-sm" type="submit" value="Submit Application">
                             </form>
