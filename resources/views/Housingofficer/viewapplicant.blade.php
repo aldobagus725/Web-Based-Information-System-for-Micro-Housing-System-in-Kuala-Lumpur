@@ -30,8 +30,8 @@
                                 <td>{{ $user->username}}</td>
                                 <td>{{ $user->email}}</td>
                                 <td>{{ $user->monthlyIncome}}</td>
-                                <td><a href="/editapplicant{{$user->id}}" class="btn btn-dark">EDIT</a></td>   
-                                <td><a href="/deleteapplicant{{$user->id}}" class="btn btn-warning">DELETE</a></td>         
+                                <td><a href="/editapplicant{{$user->id}}" class="btn btn-warning">EDIT</a></td>   
+                                <td><a href="/deleteapplicant{{$user->id}}" class="btn btn-danger">DELETE</a></td>         
                             </tr>
                             @endforeach
                         </tbody>

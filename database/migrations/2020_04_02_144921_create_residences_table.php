@@ -8,6 +8,7 @@ class CreateResidencesTable extends Migration{
     public function up(){
         Schema::create('residences', function (Blueprint $table) {
             $table->bigIncrements('residenceID');
+            $table->bigInteger('admin_id');
             $table->string('address');
             $table->string('numunits');
             $table->string('sizeperunits');

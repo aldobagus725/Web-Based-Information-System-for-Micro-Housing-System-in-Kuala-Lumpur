@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Application;
 use App\Allocation;
+use App\Residences;
 
 class ApplicantController extends Controller{
     public function __construct(){
@@ -20,7 +21,7 @@ class ApplicantController extends Controller{
         return view('Applicant.dashboard_user')->with('application',$application)->with('allocate',$allocate);
     }
     public function ViewResidence(){
-        $residencess = DB::table('residences')->get();
+        $residencess = Residences::all();
         return view('Applicant.ViewResidence')->with('residencess',$residencess);
     }
     public function SubmitApplication($id){

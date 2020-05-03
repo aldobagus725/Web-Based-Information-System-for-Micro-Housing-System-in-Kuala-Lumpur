@@ -29,7 +29,7 @@
                             </a>
                               <div class="dropdown-menu animate slideIn">
                                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Account Details</a>
-                                  <a class="dropdown-item" href="#">Change Password</a>
+                                  <a class="dropdown-item" href="{{ route('password.request') }}">Change Password</a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}</a>
                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>

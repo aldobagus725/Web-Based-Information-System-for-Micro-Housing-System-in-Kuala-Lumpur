@@ -36,9 +36,10 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     Route::put('/updateapplication{applicationID}','Housingofficer\DashboardController@updateapplication');
     Route::get('/deleteapplication{applicationID}','Housingofficer\DashboardController@deleteapplication');
     
-    Route::get('/allocatehousing{applicationID}','Housingofficer\DashboardController@allocatehousing');
-    Route::post('/allocatehousing{applicationID}','Housingofficer\DashboardController@storeallocate');
     Route::get('/viewallocation','Housingofficer\DashboardController@viewallocation');
+    Route::get('/allocatehousing{applicationID}','Housingofficer\DashboardController@allocatehousing');
+    Route::get('/confirmallocate/{applicationID}/{unitNo}','Housingofficer\DashboardController@confirmallocate');
+    Route::post('/allocate','Housingofficer\DashboardController@storeallocate');
     Route::get('/deleteallocation{unitNo}','Housingofficer\DashboardController@deleteallocate');
     
     Route::get('/viewapplicant','Housingofficer\DashboardController@viewapplicant');
@@ -49,6 +50,7 @@ Route::group(['middleware'=>['auth','Housingofficer']],function(){
     Route::get('/deleteapplicant{id}','Housingofficer\DashboardController@deleteapplicant');
     
     Route::put('/updatehousingofficer{id}','Housingofficer\DashboardController@updatehousingofficer');
+    Route::get('/edithousingofficer{id}','Housingofficer\DashboardController@edithousingofficer');
     Route::get('/deletehousingofficer{id}','Housingofficer\DashboardController@deletehousingofficer');
 });
 
